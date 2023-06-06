@@ -1,0 +1,45 @@
+{
+  "name": "@fixers/cloudflare-stream",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Cloudflare Stream API for node!",
+  "author": "Luca <git@lucacicada.me>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wefixers/cloudflare-stream.git"
+  },
+  "keywords": [
+    "cloudflare"
+  ],
+  "sideEffects": false,
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "npm run clean",
+    "build": "npm run clean && tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "ofetch": "^1.0.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.4",
+    "@types/node": "^20.2.5",
+    "changelogen": "^0.5.3",
+    "eslint": "^8.42.0",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.0",
+    "unbuild": "^1.2.1",
+    "vitest": "^0.31.4"
+  }
+}
