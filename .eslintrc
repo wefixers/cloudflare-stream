@@ -2,6 +2,6 @@
   "root": true,
   "extends": ["@antfu"],
   "rules": {
-    "curly": ["error", "all"],
+    "curly": ["error", "all"]
   }
 }
