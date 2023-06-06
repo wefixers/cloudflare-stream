@@ -13,20 +13,24 @@
     "cloudflare"
   ],
   "sideEffects": false,
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib",
-    "src"
+    "dist"
   ],
   "scripts": {
-    "clean": "rimraf ./lib",
+    "build": "unbuild",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "prebuild": "npm run clean",
-    "build": "npm run clean && tsc",
     "test": "vitest run",
-    "prepublishOnly": "npm run build"
+    "prepack": "pnpm build"
   },
   "dependencies": {
     "ofetch": "^1.0.1"
@@ -36,8 +40,6 @@
     "@types/node": "^20.2.5",
     "changelogen": "^0.5.3",
     "eslint": "^8.42.0",
-    "rimraf": "^5.0.1",
-    "ts-node": "^10.9.1",
     "typescript": "^5.1.0",
     "unbuild": "^1.2.1",
     "vitest": "^0.31.4"
